@@ -7,7 +7,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     margin: 0;
     color: var(--text-main);
@@ -31,6 +31,16 @@ body {
     font-weight: bold;
     margin-right: 5px;
 }
+.sidebar__brand {
+    height: 70px;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    gap: 12px;
+}
 
 .user-profile {
     display: flex;
@@ -53,8 +63,14 @@ body {
     flex-direction: column;
 }
 
-.profile-info .name { font-weight: bold; font-size: 14px; }
-.profile-info .role { font-size: 12px; color: var(--text-muted); }
+.profile-info .name {
+    font-weight: bold;
+    font-size: 14px;
+}
+.profile-info .role {
+    font-size: 12px;
+    color: var(--text-muted);
+}
 
 /* Main Container */
 .container {
@@ -63,8 +79,14 @@ body {
     padding: 0 20px;
 }
 
-.welcome-section h1 { margin-bottom: 5px; font-size: 28px; }
-.welcome-section p { color: var(--text-muted); margin-bottom: 30px; }
+.welcome-section h1 {
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+.welcome-section p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
 
 /* Account Card */
 .account-info-card {
@@ -107,13 +129,28 @@ body {
     justify-content: center;
 }
 
-.blue { background: #eef2ff; color: #4f46e5; }
-.gray { background: #f3f4f6; color: #374151; }
+.blue {
+    background: #eef2ff;
+    color: #4f46e5;
+}
+.gray {
+    background: #f3f4f6;
+    color: #374151;
+}
 
-.detail-box p { margin: 0; font-weight: bold; }
-.detail-box small { color: var(--text-muted); }
+.detail-box p {
+    margin: 0;
+    font-weight: bold;
+}
+.detail-box small {
+    color: var(--text-muted);
+}
 
-.arrow-right { position: absolute; right: 20px; color: #ccc; }
+.arrow-right {
+    position: absolute;
+    right: 20px;
+    color: #ccc;
+}
 
 /* Grid Menu */
 /* Penyesuaian Grid untuk 8 item agar tetap rapi */
@@ -139,7 +176,10 @@ body {
 }
 
 /* Tambahan warna untuk HR */
-.red { background: #fee2e2; color: #ef4444; }
+.red {
+    background: #fee2e2;
+    color: #ef4444;
+}
 
 .menu-item {
     background: var(--white);
@@ -153,7 +193,9 @@ body {
     cursor: pointer;
 }
 
-.menu-item:hover { transform: translateY(-3px); }
+.menu-item:hover {
+    transform: translateY(-3px);
+}
 
 .icon-box {
     width: 50px;
@@ -252,10 +294,29 @@ body {
 }
 
 /* Colors for icons */
-.green { background: #ecfdf5; color: #10b981; }
-.orange { background: #fff7ed; color: #f59e0b; }
-.purple { background: #f5f3ff; color: #8b5cf6; }
-.teal { background: #f0fdfa; color: #14b8a6; }
+.green {
+    background: #ecfdf5;
+    color: #10b981;
+}
+.orange {
+    background: #fff7ed;
+    color: #f59e0b;
+}
+.purple {
+    background: #f5f3ff;
+    color: #8b5cf6;
+}
+.teal {
+    background: #f0fdfa;
+    color: #14b8a6;
+}
 
-.menu-text h4 { margin: 0 0 5px 0; font-size: 16px; }
-.menu-text p { margin: 0; font-size: 13px; color: var(--text-muted); }
+.menu-text h4 {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+}
+.menu-text p {
+    margin: 0;
+    font-size: 13px;
+    color: var(--text-muted);
+}

@@ -276,7 +276,101 @@
             </div>
         </main>
     </div>
+    <!-- Modal Tambah Pengiriman -->
+<div class="modal-overlay" id="modalTambahPengiriman">
+    <div class="modal-wrapper">
 
+        <!-- Header -->
+        <div class="modal-header">
+            <h3 class="modal-title">Tambah Pengiriman</h3>
+            <button class="modal-close" id="closePengirimanModal">
+                ✕
+            </button>
+        </div>
+
+        <!-- Body -->
+        <div class="modal-body">
+
+            <div class="form-grid">
+
+                <!-- Order -->
+                <div class="form-group full-width">
+                    <label class="form-label">
+                        Order ID <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-control" id="salesOrderSelect">
+                        <option value="">Pilih Sales Order</option>
+                        <option value="1" data-customer="PT Maju Sejahtera">
+                            #SO-013
+                        </option>
+                        <option value="2" data-customer="CV Hasta Karya">
+                            #SO-012
+                        </option>
+                    </select>
+                </div>
+
+                <!-- Customer -->
+                <div class="form-group full-width">
+                    <label class="form-label">
+                        Customer <span class="text-danger">*</span>
+                    </label>
+                    <select class="form-control" id="customerSelect">
+                        <option value="">Pilih Customer</option>
+                        <option value="1">PT Maju Sejahtera</option>
+                        <option value="2">CV Hasta Karya</option>
+                        <option value="3">PT Makmur Bersama</option>
+                    </select>
+                </div>
+
+                <!-- Tanggal Kirim -->
+                <div class="form-group">
+                    <label class="form-label">
+                        Tanggal Kirim <span class="text-danger">*</span>
+                    </label>
+                    <input type="date" class="form-control" id="tanggalKirim">
+                </div>
+
+                <!-- Status -->
+                <div class="form-group">
+                    <label class="form-label">Status</label>
+                    <select class="form-control" id="statusPengiriman">
+                        <option value="diproses">Diproses</option>
+                        <option value="dalam_perjalanan">Dalam Perjalanan</option>
+                        <option value="selesai">Selesai</option>
+                        <option value="tertunda">QC Tertunda</option>
+                    </select>
+                </div>
+
+                <!-- Lokasi Tujuan -->
+                <div class="form-group full-width">
+                    <label class="form-label">
+                        Lokasi Tujuan <span class="text-danger">*</span>
+                    </label>
+                    <input type="text" class="form-control" placeholder="Contoh: Surabaya">
+                </div>
+
+                <!-- Catatan -->
+                <div class="form-group full-width">
+                    <label class="form-label">Catatan</label>
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer -->
+        <div class="modal-footer">
+            <button class="btn btn--outline" id="batalPengiriman">
+                Batal
+            </button>
+            <button class="btn btn--primary">
+                Simpan Pengiriman
+            </button>
+        </div>
+
+    </div>
+</div>
     <script src="{{ asset('js/dashboard/pengiriman.js') }}"></script>
 </body>
 
