@@ -239,7 +239,25 @@ class DashboardManager {
         };
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+        const profileToggle = document.getElementById('profileToggle');
+        const profileDropdown = document.getElementById('profileDropdown');
 
+        if (profileToggle && profileDropdown) {
+            // Tampilkan/sembunyikan saat profil diklik
+            profileToggle.addEventListener('click', function(e) {
+                profileDropdown.classList.toggle('show');
+                e.stopPropagation(); // Mencegah klik tembus ke body
+            });
+
+            // Sembunyikan dropdown saat klik di luar area profil
+            document.addEventListener('click', function(e) {
+                if (!profileToggle.contains(e.target)) {
+                    profileDropdown.classList.remove('show');
+                }
+            });
+        }
+    });
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     new DashboardManager();

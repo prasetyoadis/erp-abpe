@@ -204,144 +204,144 @@
         </main>
     </div>
 
-   <!-- Modal Overlay -->
-<div class="modal-overlay" id="modalTambahOrder">
-    <div class="modal-container">
-        
-        <!-- Modal Header -->
-        <div class="modal-header">
-            <h2>Tambah Sales Order</h2>
-            <button class="modal-close">&times;</button>
-        </div>
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modalTambahOrder">
+        <div class="modal-container">
 
-        <!-- Modal Body -->
-        <div class="modal-body">
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h2>Tambah Sales Order</h2>
+                <button class="modal-close">&times;</button>
+            </div>
 
-            <!-- ===== SECTION 1 : HEADER ===== -->
-           <div class="form-grid">
+            <!-- Modal Body -->
+            <div class="modal-body">
 
-                <div class="form-group">
-                    <label>Customer <span>*</span></label>
-                    <select name="customer_name" class="form-control" required>
-                        <option value="">Pilih Customer</option>
-                        <option value="PT Maju Sejahtera">PT Maju Sejahtera</option>
-                        <option value="UD Makmur Jaya">UD Makmur Jaya</option>
-                    </select>
-                    <small class="form-hint">
-                        Credit Limit: Rp 50.000.000 • Terms: 30 Hari
-                    </small>
+                <!-- ===== SECTION 1 : HEADER ===== -->
+                <div class="form-grid">
+
+                    <div class="form-group">
+                        <label>Customer <span>*</span></label>
+                        <select name="customer_name" class="form-control" required>
+                            <option value="">Pilih Customer</option>
+                            <option value="PT Maju Sejahtera">PT Maju Sejahtera</option>
+                            <option value="UD Makmur Jaya">UD Makmur Jaya</option>
+                        </select>
+                        <small class="form-hint">
+                            Credit Limit: Rp 50.000.000 • Terms: 30 Hari
+                        </small>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Tanggal Order <span>*</span></label>
+                        <input type="date" name="order_date" class="form-control" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status Order</label>
+                        <select name="status" class="form-control">
+                            <option value="Draft" selected>Draft</option>
+                            <option value="Dikirim">Dikirim</option>
+                            <option value="Selesai">Selesai</option>
+                            <option value="Dibatalkan">Dibatalkan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Status Pembayaran</label>
+                        <select name="payment_status" class="form-control">
+                            <option value="Draft" selected>Draft</option>
+                            <option value="Belum Lunas">Belum Lunas</option>
+                            <option value="Lunas">Lunas</option>
+                            <option value="Dibatalkan">Dibatalkan</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group full">
+                        <label>Catatan</label>
+                        <textarea name="notes" class="form-control" rows="3" placeholder="Tambahkan catatan opsional..."></textarea>
+                    </div>
+
                 </div>
 
-                <div class="form-group">
-                    <label>Tanggal Order <span>*</span></label>
-                    <input type="date" name="order_date" class="form-control" required>
+                <!-- ===== SECTION 2 : ITEMS ===== -->
+                <div class="items-section">
+
+                    <div class="items-header">
+                        <h3>Detail Produk</h3>
+                        <button class="btn btn--sm-outline">+ Tambah Item</button>
+                    </div>
+
+                    <div class="table-responsive">
+                        <table class="data-table items-table">
+                            <thead>
+                                <tr>
+                                    <th>Produk</th>
+                                    <th width="100">Qty</th>
+                                    <th width="150">Harga</th>
+                                    <th width="150">Total</th>
+                                    <th width="60"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <td>
+                                        <select class="form-control">
+                                            <option>Pilih Produk</option>
+                                            <option>Produk A</option>
+                                            <option>Produk B</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" value="1">
+                                    </td>
+                                    <td>
+                                        <input type="number" class="form-control" value="100000">
+                                    </td>
+                                    <td>
+                                        <input type="text" class="form-control" value="100000" readonly>
+                                    </td>
+                                    <td>
+                                        <button class="btn-delete">×</button>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label>Status Order</label>
-                    <select name="status" class="form-control">
-                        <option value="Draft" selected>Draft</option>
-                        <option value="Dikirim">Dikirim</option>
-                        <option value="Selesai">Selesai</option>
-                        <option value="Dibatalkan">Dibatalkan</option>
-                    </select>
-                </div>
+                <!-- ===== SECTION 3 : SUMMARY ===== -->
+                <div class="summary-section">
 
-                <div class="form-group">
-                    <label>Status Pembayaran</label>
-                    <select name="payment_status" class="form-control">
-                        <option value="Draft" selected>Draft</option>
-                        <option value="Belum Lunas">Belum Lunas</option>
-                        <option value="Lunas">Lunas</option>
-                        <option value="Dibatalkan">Dibatalkan</option>
-                    </select>
-                </div>
+                    <div class="summary-box">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <strong>Rp 100.000</strong>
+                        </div>
+                        <div class="summary-row">
+                            <span>Pajak (11%)</span>
+                            <strong>Rp 11.000</strong>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Grand Total</span>
+                            <strong>Rp 111.000</strong>
+                        </div>
+                    </div>
 
-                <div class="form-group full">
-                    <label>Catatan</label>
-                    <textarea name="notes" class="form-control" rows="3" placeholder="Tambahkan catatan opsional..."></textarea>
                 </div>
 
             </div>
 
-            <!-- ===== SECTION 2 : ITEMS ===== -->
-            <div class="items-section">
-
-                <div class="items-header">
-                    <h3>Detail Produk</h3>
-                    <button class="btn btn--sm-outline">+ Tambah Item</button>
-                </div>
-
-                <div class="table-responsive">
-                    <table class="data-table items-table">
-                        <thead>
-                            <tr>
-                                <th>Produk</th>
-                                <th width="100">Qty</th>
-                                <th width="150">Harga</th>
-                                <th width="150">Total</th>
-                                <th width="60"></th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>
-                                    <select class="form-control">
-                                        <option>Pilih Produk</option>
-                                        <option>Produk A</option>
-                                        <option>Produk B</option>
-                                    </select>
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" value="1">
-                                </td>
-                                <td>
-                                    <input type="number" class="form-control" value="100000">
-                                </td>
-                                <td>
-                                    <input type="text" class="form-control" value="100000" readonly>
-                                </td>
-                                <td>
-                                    <button class="btn-delete">×</button>
-                                </td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-
-            <!-- ===== SECTION 3 : SUMMARY ===== -->
-            <div class="summary-section">
-
-                <div class="summary-box">
-                    <div class="summary-row">
-                        <span>Subtotal</span>
-                        <strong>Rp 100.000</strong>
-                    </div>
-                    <div class="summary-row">
-                        <span>Pajak (11%)</span>
-                        <strong>Rp 11.000</strong>
-                    </div>
-                    <div class="summary-row total">
-                        <span>Grand Total</span>
-                        <strong>Rp 111.000</strong>
-                    </div>
-                </div>
-
+            <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button class="btn btn--sm-outline">Batal</button>
+                <button class="btn btn--primary">Simpan Order</button>
             </div>
 
         </div>
-
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-            <button class="btn btn--sm-outline">Batal</button>
-            <button class="btn btn--primary">Simpan Order</button>
-        </div>
-
     </div>
-</div>
 
     <script src="{{ asset('js/dashboard/penjualan.js') }}"></script>
 </body>
