@@ -20,8 +20,8 @@
             <div class="profile-info">
                 <img src="https://via.placeholder.com/40" alt="Avatar">
                 <div class="text">
-                    <span class="name">Putra</span>
-                    <span class="role">Super Admin <i class="fa-solid fa-chevron-down"></i></span>
+                    <span class="name">{{ auth()->user()->name }}</span>
+                    <span class="role">{{ auth()->user()->role->name }} <i class="fa-solid fa-chevron-down"></i></span>
                 </div>
             </div>
         </div>
@@ -57,13 +57,19 @@
                     <li class="{{ request()->routeIs('dashboard.hr') ? 'active' : '' }}">
                         <a href="{{ route('dashboard.hr') }}"><i class="fa-solid fa-user-tie"></i> HR</a>
                     </li>
+                    <li>
+                        <form action="{{ route('auth.logout') }}" method="POST" >
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </li>
                 </ul>
             </nav>
         </aside>
 
         <main class="content">
             <section class="welcome-section">
-                <h1>Selamat Datang</h1>
+                <h1>Selamat Datang {{ auth()->user()->name }}👋</h1>
                 <p>Kelola toko dan transaksi Anda dengan lebih rapi dan efisien.</p>
             </section>
 
@@ -84,7 +90,7 @@
                         <div class="icon-bg gray"><i class="fa-solid fa-user"></i></div>
                         <div class="info-text">
                             <small>Role</small>
-                            <p>Owner</p>
+                            <p>{{ auth()->user()->role->name }}</p>
                         </div>
                         <i class="fa-solid fa-chevron-right arrow-right"></i>
                     </div>

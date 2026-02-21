@@ -92,7 +92,9 @@
 
     <div class="login-card">
         <h2>Login</h2>
-        <form onsubmit="event.preventDefault(); alert('Ini adalah simulasi klik login!');">
+        {{-- onsubmit="event.preventDefault(); alert('Ini adalah simulasi klik login!');" --}}
+        <form action="{{ route('auth.login') }}" method="POST" >
+            @csrf
             <div class="input-group">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" placeholder="Masukkan username" required>
