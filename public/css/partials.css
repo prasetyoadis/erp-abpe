@@ -190,3 +190,99 @@
         display: none;
     }
 }
+
+/* ==========================================================================
+   PROFILE DROPDOWN
+   ========================================================================== */
+.topbar__profile {
+    position: relative; /* Penting agar dropdown mengambang tepat di bawahnya */
+    user-select: none;
+}
+
+.profile__dropdown {
+    position: absolute;
+    top: calc(100% + 15px);
+    right: 0;
+    background-color: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.2s ease;
+    z-index: 1000;
+}
+
+/* Class ini akan ditambahkan oleh JavaScript saat profil diklik */
+.profile__dropdown.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown__header {
+    padding: 16px;
+}
+
+.dropdown__name {
+    margin: 0;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.dropdown__email {
+    margin: 4px 0 0 0;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.dropdown__divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 0;
+}
+
+.dropdown__item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    text-decoration: none;
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+.dropdown__item:hover {
+    background-color: #f8fafc;
+    color: var(--text-main);
+}
+
+.dropdown__item.text-danger {
+    color: #ef4444;
+}
+
+.dropdown__item.text-danger:hover {
+    background-color: #fef2f2;
+}
+
+.dropdown__item i {
+    font-size: 16px;
+}
+@media (max-width: 768px) {
+    .topbar__mobile-toggle {
+        display: flex;
+    }
+}

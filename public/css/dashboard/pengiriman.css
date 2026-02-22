@@ -261,6 +261,7 @@ body {
     margin-bottom: 24px;
 }
 
+/* Update pada .summary-card */
 .summary-card {
     background-color: var(--color-white);
     border-radius: 12px;
@@ -268,7 +269,22 @@ body {
     box-shadow: var(--shadow-sm);
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: space-between; /* Menjauhkan konten atas dan bawah */
+    min-height: 140px; /* Memberikan tinggi minimal yang seragam */
+    gap: 16px;
+}
+
+/* Tambahan class baru untuk memastikan posisi */
+.summary-card__top {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.summary-card__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .summary-card__header {
