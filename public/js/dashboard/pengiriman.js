@@ -289,6 +289,29 @@ class PengirimanModule {
     }
 }
 
+document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('modalTambahPengiriman');
+            const btnTambah = document.getElementById('btnTambahPengiriman');
+            const btnClose = document.getElementById('closePengirimanModal');
+            const btnBatal = document.getElementById('batalPengiriman');
+
+            // Fungsi toggle modal dengan CSS Class 'is-active'
+            const toggleModal = () => {
+                if (modal) modal.classList.toggle('is-active');
+            };
+
+            // Event Listeners
+            if (btnTambah) btnTambah.addEventListener('click', toggleModal);
+            if (btnClose) btnClose.addEventListener('click', toggleModal);
+            if (btnBatal) btnBatal.addEventListener('click', toggleModal);
+
+            // Tutup modal jika user klik area gelap di luar modal
+            if (modal) {
+                modal.addEventListener('click', function(e) {
+                    if (e.target === modal) toggleModal();
+                });
+            }
+        });
 // Initialize on DOM Load
 document.addEventListener("DOMContentLoaded", () => {
     new PengirimanModule();

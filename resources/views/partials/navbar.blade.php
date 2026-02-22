@@ -1,10 +1,10 @@
-.<aside class="sidebar" id="sidebar">
+<aside class="sidebar" id="sidebar">
     <div class="sidebar__brand">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#2B78E4" stroke-width="2"
             stroke-linecap="round" stroke-linejoin="round">
             <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
         </svg>
-        <span>BALE ERP</span>
+        <span>ABPE WebApp</span>
     </div>
     <nav class="sidebar__nav">
         <a href="{{ route('dashboard.index') }}"

@@ -205,14 +205,33 @@ body {
     gap: 20px;
 }
 
+/* Update pada .summary-card */
 .summary-card {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    justify-content: space-between; /* Menjauhkan konten atas dan bawah */
+    min-height: 150px; /* Tinggi minimum yang seragam */
+    gap: 16px;
     transition: var(--transition);
 }
 
-.summary-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.summary-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+/* Tambahan class baru */
+.summary-card__top {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.summary-card__bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 .summary-card__header { display: flex; justify-content: space-between; align-items: center; }
 .summary-card__title { font-size: 14px; font-weight: 500; color: var(--gray); margin: 0; }
 .summary-card__icon {

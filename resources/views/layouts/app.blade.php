@@ -11,33 +11,51 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
     <link rel="stylesheet" href="{{ asset('css/partials.css') }}">
+
     @stack('styles')
 </head>
 
 <body>
 
-    <div class="app-wrapper">
+    <div class="app-container">
         @include('partials.navbar')
 
-        <div class="main-content">
-            @include('partials.header')
+        @include('partials.header')
 
-            <main class="content-body">
-                @yield('content')
-            </main>
-        </div>
+        @yield('content')
     </div>
 
     @stack('scripts')
 
-    {{-- Script sederhana untuk toggle mobile sidebar jika diperlukan --}}
     <script>
+        // Toggle Mobile Sidebar
         document.getElementById('mobileToggle')?.addEventListener('click', function() {
-            document.getElementById('sidebar').classList.toggle('active');
+            // Perbaikan: Class di CSS menggunakan 'open', bukan 'active'
+            document.getElementById('sidebar').classList.toggle('open');
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const profileToggle = document.getElementById('profileToggle');
+            const profileDropdown = document.getElementById('profileDropdown');
+
+            if (profileToggle && profileDropdown) {
+                // Tampilkan/sembunyikan saat profil diklik
+                profileToggle.addEventListener('click', function(e) {
+                    profileDropdown.classList.toggle('show');
+                    e.stopPropagation(); // Mencegah klik tembus ke body
+                });
+
+                // Sembunyikan dropdown saat klik di luar area profil
+                document.addEventListener('click', function(e) {
+                    if (!profileToggle.contains(e.target)) {
+                        profileDropdown.classList.remove('show');
+                    }
+                });
+            }
         });
     </script>
-
 </body>
 
 </html>
