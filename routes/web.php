@@ -17,6 +17,10 @@ Route::middleware(['auth'])->group(function (){
     Route::get('/dashboard/penjualan', function () {
         return view('dashboard.penjualan.index');
     })->name('dashboard.penjualan');
+
+    Route::get('/dashboard/pembelian', function () {
+        return view('dashboard.pembelian.index');
+    })->name('dashboard.pembelian');
     
     
     Route::get('/dashboard/produksi', function () {
