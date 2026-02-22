@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Penjualan - ABPE WebApp</title>
-    <link rel="stylesheet" href="{{ asset('css/dashboard/penjualan.css') }}">
+    <title>Pembelian - ABPE WebApp</title>
+    <link rel="stylesheet" href="{{ asset('css/dashboard/pembelian.css') }}">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
@@ -37,12 +37,12 @@
                         <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
                     </svg> Penjualan</a>
                 <a href="{{ route('dashboard.pembelian') }}"
-                    class="sidebar__link{{ request()->routeIs('dashboard.pembelian') ? ' sidebar__link--active' : '' }}">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2">
-                        <polyline points="9 11 12 14 22 4"></polyline>
-                        <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
-                    </svg> Pembelian</a>
+            class="sidebar__link{{ request()->routeIs('dashboard.pembelian') ? ' sidebar__link--active' : '' }}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg> Pembelian</a>
                 <a href="{{ route('dashboard.produksi') }}"
                     class="sidebar__link{{ request()->routeIs('dashboard.produksi') ? ' sidebar__link--active' : '' }}"><svg
                         width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
@@ -137,14 +137,14 @@
 
         <main class="main-content">
             <div class="page-header">
-                <h1 class="page-title">Penjualan</h1>
+                <h1 class="page-title">Pembelian</h1>
                 <button class="btn btn--primary" id="btnTambahOrder">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                         stroke-width="2">
                         <line x1="12" y1="5" x2="12" y2="19"></line>
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                     </svg>
-                    Tambah Order
+                    Beli Barang
                 </button>
             </div>
 
@@ -161,7 +161,7 @@
                         </select>
                     </div>
                     <div class="filter-group">
-                        <label class="filter-label">Customer</label>
+                        <label class="filter-label">Supplier</label>
                         <select class="filter-input" id="filterCustomer">
                             <option value="Semua">Semua</option>
                             <option value="PT Maju Sejahtera">PT Maju Sejahtera</option>
@@ -180,13 +180,13 @@
                     <table class="data-table" id="penjualanTable">
                         <thead>
                             <tr>
-                                <th>Order ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
+                                <th>Purchase ID <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2">
                                         <polyline points="7 15 12 20 17 15"></polyline>
                                         <polyline points="7 9 12 4 17 9"></polyline>
                                     </svg></th>
-                                <th>Customer</th>
-                                <th>Tanggal Order</th>
+                                <th>Supplier</th>
+                                <th>Tanggal Beli</th>
                                 <th>Status</th>
                                 <th>Total <svg width="12" height="12" viewBox="0 0 24 24" fill="none"
                                         stroke="currentColor" stroke-width="2">
@@ -217,7 +217,7 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h2>Tambah Sales Order</h2>
+                <h2>Tambah Purchase</h2>
                 <button class="modal-close">&times;</button>
             </div>
 
@@ -228,9 +228,9 @@
                 <div class="form-grid">
 
                     <div class="form-group">
-                        <label>Customer <span>*</span></label>
+                        <label>Supplier <span>*</span></label>
                         <select name="customer_name" class="form-control" required>
-                            <option value="">Pilih Customer</option>
+                            <option value="">Pilih Supplier</option>
                             <option value="PT Maju Sejahtera">PT Maju Sejahtera</option>
                             <option value="UD Makmur Jaya">UD Makmur Jaya</option>
                         </select>
@@ -240,12 +240,12 @@
                     </div>
 
                     <div class="form-group">
-                        <label>Tanggal Order <span>*</span></label>
+                        <label>Tanggal Beli <span>*</span></label>
                         <input type="date" name="order_date" class="form-control" required>
                     </div>
 
                     <div class="form-group">
-                        <label>Status Order</label>
+                        <label>Status Beli</label>
                         <select name="status" class="form-control">
                             <option value="Draft" selected>Draft</option>
                             <option value="Dikirim">Dikirim</option>
@@ -275,7 +275,7 @@
                 <div class="items-section">
 
                     <div class="items-header">
-                        <h3>Detail Produk</h3>
+                        <h3>Detail Material</h3>
                         <button class="btn btn--sm-outline">+ Tambah Item</button>
                     </div>
 
@@ -350,7 +350,7 @@
         </div>
     </div>
 
-    <script src="{{ asset('js/dashboard/penjualan.js') }}"></script>
+    <script src="{{ asset('js/dashboard/pembelian.js') }}"></script>
 </body>
 
 </html>

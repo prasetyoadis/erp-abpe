@@ -4,7 +4,7 @@
             stroke-linecap="round" stroke-linejoin="round">
             <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
         </svg>
-        <span>ABPE WebApp</span>
+        <span>BALE ERP</span>
     </div>
     <nav class="sidebar__nav">
         <a href="{{ route('dashboard.index') }}"
@@ -24,6 +24,14 @@
                 <polyline points="9 11 12 14 22 4"></polyline>
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
             </svg> Penjualan
+        </a>
+        <a href="{{ route('dashboard.pembelian') }}"
+            class="sidebar__link{{ request()->routeIs('dashboard.pembelian') ? ' sidebar__link--active' : '' }}">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="2">
+                <polyline points="9 11 12 14 22 4"></polyline>
+                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg> Pembelian
         </a>
         <a href="{{ route('dashboard.produksi') }}"
             class="sidebar__link{{ request()->routeIs('dashboard.produksi') ? ' sidebar__link--active' : '' }}">
