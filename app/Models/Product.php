@@ -24,4 +24,19 @@ class Product extends Model
      * @var bool
      */
     public $incrementing = false;
+
+
+    public function salesOrders()
+    {
+        return $this->belongsToMany(
+            SalesOrder::class,
+            'sales_order_items',
+            'product_id',
+            'sales_order_id'
+        )->withPivot([
+            'quantity',
+            'unit_price',
+            'total_price',
+        ])->withTimestamps();
+    }
 }

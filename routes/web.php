@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\SalesController;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [AuthController::class, 'index'])
@@ -14,35 +15,35 @@ Route::middleware(['auth'])->group(function (){
         return view('dashboard.index');
     })->name('dashboard.index');
     
-    Route::get('/dashboard/penjualan', function () {
-        return view('dashboard.penjualan.index');
-    })->name('dashboard.penjualan');
-
-    Route::get('/dashboard/pembelian', function () {
-        return view('dashboard.pembelian.index');
-    })->name('dashboard.pembelian');
+    Route::get('/dashboard/sales', [SalesController::class, 'index'])
+        ->name('dashboard.sales');
+    Route::post('/dashboard/sales/', [SalesController::class, 'store'])
+        ->name('dashboard.sales.create');
     
+    Route::get('/dashboard/purchases', function () {
+        return view('dashboard.pembelian.index');
+    })->name('dashboard.purchase');
     
     Route::get('/dashboard/produksi', function () {
         return view('dashboard.produksi.index');
     })->name('dashboard.produksi');
     
-    route::get('/dashboard/gudang', function () {
+    route::get('/dashboard/warehouse', function () {
         return view('dashboard.gudang.index');
-    })->name('dashboard.gudang');
+    })->name('dashboard.warehouse');
     
     Route::get('/dashboard/qc', function () {
         return view('dashboard.qc.index');
     })->name('dashboard.qc');
     
-    Route::get('/dashboard/pengiriman', function () {
+    Route::get('/dashboard/shipments', function () {
         return view('dashboard.pengiriman.index');
-    })->name('dashboard.pengiriman');
+    })->name('dashboard.shipment');
     
     
-    Route::get('/dashboard/keuangan', function () {
+    Route::get('/dashboard/finaces', function () {
         return view('dashboard.keuangan.index');
-    })->name('dashboard.keuangan');
+    })->name('dashboard.finance');
     
     
     Route::get('/dashboard/hr', function () {

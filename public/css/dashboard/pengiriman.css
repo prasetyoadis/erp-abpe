@@ -37,7 +37,7 @@ body {
 }
 
 /* Layout Grid */
-.app-layout {
+.app-container {
     display: grid;
     grid-template-columns: 240px 1fr;
     grid-template-rows: 70px 1fr;

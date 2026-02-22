@@ -26,4 +26,14 @@ class PurchaseOrderItem extends Model
      * @var bool
      */
     public $incrementing = false;
+
+    public function salesOrder()
+    {
+        return $this->belongsTo(SalesOrder::class, 'sales_order_id');
+    }
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id');
+    }
 }

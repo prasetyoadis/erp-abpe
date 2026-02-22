@@ -4,7 +4,7 @@
             stroke-linecap="round" stroke-linejoin="round">
             <polygon points="3 11 22 2 13 21 11 13 3 11"></polygon>
         </svg>
-        <span>ABPE WebApp</span>
+        <span>BALE ERP</span>
     </div>
     <nav class="sidebar__nav">
         <a href="{{ route('dashboard.index') }}"
@@ -17,20 +17,45 @@
                 <rect x="3" y="14" width="7" height="7"></rect>
             </svg> Dashboard
         </a>
-        <a href="{{ route('dashboard.penjualan') }}"
-            class="sidebar__link{{ request()->routeIs('dashboard.penjualan') ? ' sidebar__link--active' : '' }}">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+        <a href="{{ route('dashboard.sales') }}"
+            class="sidebar__link{{ request()->routeIs('dashboard.sales') ? ' sidebar__link--active' : '' }}">
+            {{-- <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <polyline points="9 11 12 14 22 4"></polyline>
                 <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+            </svg> --}}
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+            >
+                <path d="M6 2l1.5 4h9L18 2"/>
+                <path d="M3 6h18l-1.5 14h-15L3 6z"/>
             </svg> Penjualan
         </a>
-        <a href="{{ route('dashboard.pembelian') }}"
-            class="sidebar__link{{ request()->routeIs('dashboard.pembelian') ? ' sidebar__link--active' : '' }}">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                stroke-width="2">
-                <polyline points="9 11 12 14 22 4"></polyline>
-                <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        <a href="{{ route('dashboard.purchase') }}"
+            class="sidebar__link{{ request()->routeIs('dashboard.purchase') ? ' sidebar__link--active' : '' }}">
+            <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                width="20" 
+                height="20" 
+                viewBox="0 0 24 24" 
+                fill="none" 
+                stroke="currentColor" 
+                stroke-width="2" 
+                stroke-linecap="round" 
+                stroke-linejoin="round"
+            >
+                <path d="M4 2h16v20l-4-2-4 2-4-2-4 2V2z"/>
+                <line x1="8" y1="7" x2="16" y2="7"/>
+                <line x1="8" y1="11" x2="16" y2="11"/>
+                <line x1="8" y1="15" x2="13" y2="15"/>
             </svg> Pembelian
         </a>
         <a href="{{ route('dashboard.produksi') }}"
@@ -41,8 +66,8 @@
                 <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
             </svg> Produksi
         </a>
-        <a href="{{ route('dashboard.gudang') }}"
-            class="sidebar__link{{ request()->routeIs('dashboard.gudang') ? ' sidebar__link--active' : '' }}">
+        <a href="{{ route('dashboard.warehouse') }}"
+            class="sidebar__link{{ request()->routeIs('dashboard.warehouse') ? ' sidebar__link--active' : '' }}">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <path
@@ -60,8 +85,8 @@
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
             </svg> QC
         </a>
-        <a href="{{ route('dashboard.pengiriman') }}"
-            class="sidebar__link{{ request()->routeIs('dashboard.pengiriman') ? ' sidebar__link--active' : '' }}">
+        <a href="{{ route('dashboard.shipment') }}"
+            class="sidebar__link{{ request()->routeIs('dashboard.shipment') ? ' sidebar__link--active' : '' }}">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <rect x="1" y="3" width="15" height="13"></rect>
@@ -70,8 +95,8 @@
                 <circle cx="18.5" cy="18.5" r="2.5"></circle>
             </svg> Pengiriman
         </a>
-        <a href="{{ route('dashboard.keuangan') }}"
-            class="sidebar__link{{ request()->routeIs('dashboard.keuangan') ? ' sidebar__link--active' : '' }}">
+        <a href="{{ route('dashboard.finance') }}"
+            class="sidebar__link{{ request()->routeIs('dashboard.finance') ? ' sidebar__link--active' : '' }}">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="2">
                 <line x1="12" y1="1" x2="12" y2="23"></line>

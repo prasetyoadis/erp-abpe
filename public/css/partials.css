@@ -1,3 +1,14 @@
+:root {
+    --primary-color: #2b78e4;
+    --primary-light: #ebf4ff;
+    --bg-color: #f8f9fb;
+    --text-main: #1a1a1a;
+    --text-muted: #64748b;
+    --white: #ffffff;
+    --border-color: #eee;
+    --transition: all 0.3s ease;
+}
+
 /* ================================
    SIDEBAR STYLES (navbar.blade.php)
    ================================ */
@@ -214,7 +225,7 @@
     visibility: hidden;
     transform: translateY(-10px);
     transition: all 0.2s ease;
-    z-index: 1000;
+    z-index: 9999;
 }
 
 /* Class ini akan ditambahkan oleh JavaScript saat profil diklik */

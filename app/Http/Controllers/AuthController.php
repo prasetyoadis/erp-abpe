@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Auth\LoginAuthRequest;
-// use App\Models\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
@@ -27,29 +28,23 @@ class AuthController extends Controller
         $credentials = $request->validated();
         # Konversi data formValid 'username' dengan huruf kecil.
         $credentials['username'] = strtolower($credentials['username']);
+        $user = User::where('username', $credentials['username'])->first();
 
-        # Kalau data fromValid cocok autentik dengan model User.
-        if (Auth::attempt($credentials)) {
-            # Memperbarui session.
-            $request->session()->regenerate();
-            
-            # Kalau data 'is_active' user adalah false.
-            if (!$request->user()->is_active) {
-                # Melogout akun user.
-                Auth::logout();
-
-                # Membatalkan session dan memperbarui token session.
-                $request->session()->invalidate();
-                $request->session()->regenerateToken();
-
-                # Return fail massage
-                return back()->with('fail', 'Status Admin non-Aktif!');
-            }
-            # Mengalihkan ke halaman Admin Dashboard.
-            return redirect()->intended('/dashboard');
+        if (!$user || !Hash::check($credentials['password'], $user->password)) {
+            # Return fail massage jika proses login tidak berhasil.
+            return back()->with('fail', 'Data login Salah!');
         }
-        # Return fail massage jika proses login tidak berhasil.
-        return back()->with('fail', 'Data login Salah!');
+        if (!$user->is_active) {
+            # Return fail massage
+            return back()->with('fail', 'Status Admin non-Aktif!');
+        }
+        # Kalau data fromValid cocok autentik dengan model User.
+        Auth::attempt($credentials);
+        # Memperbarui session.
+        $request->session()->regenerate();
+        
+        # Mengalihkan ke halaman Admin Dashboard.
+        return redirect()->intended('/dashboard');
     }
 
     /**
