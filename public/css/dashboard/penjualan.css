@@ -8,23 +8,46 @@
     --color-bg-main: #f4f7fe;
     --color-white: #ffffff;
 
-    /* Status Colors */
-    --color-draft-bg: #f1f5f9;
-    --color-draft-text: #64748b;
-    --color-dikirim-bg: #3b82f6;
-    --color-dikirim-text: #ffffff;
-    --color-selesai-bg: #10b981;
-    --color-selesai-text: #ffffff;
-    --color-batal-bg: #ef4444;
-    --color-batal-text: #ffffff;
+    /* ========================= */
+    /* STATUS BASE COLORS */
+    /* ========================= */
 
-    /* Status Outline Colors */
-    --color-lunas-border: #10b981;
-    --color-lunas-text: #10b981;
-    --color-belum-lunas-border: #94a3b8;
-    --color-belum-lunas-text: #64748b;
-    --color-batal-outline-bg: #fef2f2;
-    --color-batal-outline-text: #ef4444;
+    /* Draft */
+    --status-draft-bg: #f1f5f9;
+    --status-draft-text: #64748b;
+    /* Shipped / In Progress */
+    --status-shipped-bg: #f59e0b;
+    --status-shipped-text: #ffffff;
+    /* Completed / Success */
+    --status-completed-bg: #10b981;
+    --status-completed-text: #ffffff;
+    /* Confirmed */
+    --status-confirmed-bg: #3b82f6;   /* lebih kalem */
+    --status-confirmed-text: #ffffff;
+    /* Cancelled / Danger */
+    --status-cancelled-bg: #ef4444;
+    --status-cancelled-text: #ffffff;
+
+    /* ========================= */
+    /* PAYMENT OUTLINE COLORS */
+    /* ========================= */
+
+    /* Paid */
+    --payment-paid-bg: #ecfdf5;
+    --payment-paid-border: #10b981;
+    --payment-paid-text: #10b981;
+    /* Partial */
+    --payment-partial-bg: #fffbeb;
+    --payment-partial-border: #f59e0b;
+    --payment-partial-text: #f59e0b;
+    /* Unpaid */
+    --payment-unpaid-bg: #f1f5f9;
+    --payment-unpaid-border: #94a3b8;
+    --payment-unpaid-text: #64748b;
+    /* Cancelled */
+    --payment-cancelled-bg: #fef2f2;
+    --payment-cancelled-border: #ef4444;
+    --payment-cancelled-text: #ef4444;
 
     /* Spacing & Typography */
     --font-family: "Inter", sans-serif;
@@ -317,7 +340,10 @@ body {
 .table-responsive {
     overflow-x: auto;
 }
-
+.table-modal {
+    max-height: 250px;
+    overflow-y: auto;
+}
 .data-table {
     width: 100%;
     border-collapse: collapse;
@@ -354,58 +380,82 @@ body {
     color: var(--color-text-muted);
 }
 
-/* Badges */
+/* ========================= */
+/* SOLID BADGE */
+/* ========================= */
+
 .badge {
-    padding: 6px 12px;
-    border-radius: 4px;
+    padding: 6px 12px; 
+    border-radius: 4px; 
     font-size: 12px;
     font-weight: 500;
     display: inline-block;
     text-align: center;
 }
 
-.badge--draft {
-    background-color: var(--color-draft-bg);
-    color: var(--color-draft-text);
-}
-.badge--dikirim {
-    background-color: var(--color-dikirim-bg);
-    color: var(--color-dikirim-text);
-}
-.badge--selesai {
-    background-color: var(--color-selesai-bg);
-    color: var(--color-selesai-text);
-}
-.badge--dibatalkan {
-    background-color: var(--color-batal-bg);
-    color: var(--color-batal-text);
+/* Sales Order Status */
+
+.badge--neutral {
+    background: var(--status-draft-bg);
+    color: var(--status-draft-text);
 }
 
+.badge--progress {
+    background: var(--status-shipped-bg);
+    color: var(--status-shipped-text);
+}
+.badge--confirmed {
+    background: var(--status-confirmed-bg);
+    color: var(--status-confirmed-text);
+}
+
+.badge--success {
+    background: var(--status-completed-bg);
+    color: var(--status-completed-text);
+}
+
+.badge--danger {
+    background: var(--status-cancelled-bg);
+    color: var(--status-cancelled-text);
+}
+
+/* ========================= */
+/* OUTLINE BADGE (PAYMENT) */
+/* ========================= */
+
 .badge-outline {
-    padding: 4px 10px;
-    border-radius: 4px;
-    font-size: 12px;
-    font-weight: 500;
-    background-color: transparent;
+    padding: 4px 10px; 
+    border-radius: 4px; 
+    font-size: 12px; 
+    font-weight: 500; 
+    background-color: transparent; 
     border: 1px solid transparent;
 }
 
-.badge-outline--draft {
-    border-color: var(--color-border);
-    color: var(--color-text-muted);
+/* Payment Status */
+
+.badge-outline--success {
+    background: var(--payment-paid-bg);
+    border-color: var(--payment-paid-border);
+    color: var(--payment-paid-text);
 }
-.badge-outline--lunas {
-    border-color: var(--color-lunas-border);
-    color: var(--color-lunas-text);
+
+.badge-outline--progress {
+    background: var(--payment-partial-bg);
+    border-color: var(--payment-partial-border);
+    color: var(--payment-partial-text);
 }
-.badge-outline--belum-lunas {
-    border-color: var(--color-belum-lunas-border);
-    color: var(--color-belum-lunas-text);
+
+.badge-outline--neutral {
+    background: var(--payment-unpaid-bg);
+    border-color: var(--payment-unpaid-border);
+    color: var(--payment-unpaid-text);
 }
-.badge-outline--dibatalkan {
-    background-color: var(--color-batal-outline-bg);
-    color: var(--color-batal-outline-text);
-    border: none;
+
+.badge-outline--danger {
+    background: var(--payment-cancelled-bg);
+    border-color: var(--payment-cancelled-border);
+    color: var(--payment-cancelled-text);
 }
 
 /* Pagination */
@@ -660,7 +710,7 @@ body {
 }
 
 .summary-box {
-    width: 320px;
+    width: 100%;
     background: var(--color-bg-main);
     padding: 20px;
     border-radius: 8px;

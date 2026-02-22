@@ -25,11 +25,11 @@
             <span class="topbar__badge">2</span>
         </button>
         <div class="topbar__profile" id="profileToggle">
-            <img src="https://ui-avatars.com/api/?name=Andi+Admin&background=EBF4FF&color=2B78E4" alt="Admin"
+            <img src="https://ui-avatars.com/api/?name={{ auth()->user()->name }}&background=EBF4FF&color=2B78E4" alt="Admin"
                 class="profile__avatar">
             <div class="profile__info">
-                <span class="profile__name"> <span class="profile__role">•
-                        Admin</span></span>
+                <span class="profile__name">{{ auth()->user()->name }}<br>
+                    <span class="profile__role">{{ auth()->user()->role->name }}</span></span>
             </div>
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2">
                 <polyline points="6 9 12 15 18 9"></polyline>
@@ -37,8 +37,8 @@
 
             <div class="profile__dropdown" id="profileDropdown">
                 <div class="dropdown__header">
-                    <p class="dropdown__name"></p>
-                    <p class="dropdown__email"></p>
+                    <p class="dropdown__name">{{ auth()->user()->name }}</p>
+                    <p class="dropdown__email">{{ auth()->user()->role->name }}</p>
                 </div>
                 <hr class="dropdown__divider">
                 <a href="#" class="dropdown__item">
@@ -49,7 +49,7 @@
                 </a>
                 <hr class="dropdown__divider">
 
-                <form method="POST" action="">
+                <form method="POST" action="{{ route("auth.logout") }}">
                     @csrf
                     <button type="submit" class="dropdown__item text-danger">
                         <i class="fa-solid fa-arrow-right-from-bracket"></i> Keluar
